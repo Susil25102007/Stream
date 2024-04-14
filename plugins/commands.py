@@ -1378,9 +1378,9 @@ async def removetutorial(bot, message):
 
 @Client.on_message(filters.command("restart") & filters.user(ADMINS))
 async def stop_button(bot, message):
-    msg = await bot.send_message(text="**🔄 𝙿𝚁𝙾𝙲𝙴𝚂𝚂𝙴𝚂 𝚂𝚃𝙾𝙿𝙴𝙳. 𝙱𝙾𝚃 𝙸𝚂 𝚁𝙴𝚂𝚃𝙰𝚁𝚃𝙸𝙽𝙶...**", chat_id=message.chat.id)       
+    msg = await bot.send_message(text="**🔄 ᴘʀᴏᴄᴇss sᴛᴏᴘᴘᴇᴅ. 𝙱𝙾𝚃 𝙸𝚂 𝚁𝙴𝚂𝚃𝙰𝚁𝚃𝙸𝙽𝙶...**", chat_id=message.chat.id)       
     await asyncio.sleep(3)
-    await msg.edit("**✅️ 𝙱𝙾𝚃 𝙸𝚂 𝚁𝙴𝚂𝚃𝙰𝚁𝚃𝙴𝙳. 𝙽𝙾𝚆 𝚈𝙾𝚄 𝙲𝙰𝙽 𝚄𝚂𝙴 𝙼𝙴**")
+    await msg.edit("**✅️ 𝙱𝙾𝚃 𝙸𝚂 𝚁𝙴𝚂𝚃𝙰𝚁𝚃𝙴𝙳. 𝙽𝙾ᴡ 𝚈𝙾𝚄 𝙲𝙰𝙽 𝚄𝚂𝙴 𝙼𝙴**")
     os.execl(sys.executable, sys.executable, *sys.argv)
 
 
@@ -1427,13 +1427,13 @@ async def remove_premium_cmd_handler(client, message):
             expiry_time = datetime.datetime.now() + datetime.timedelta(seconds=seconds)
             user_data = {"id": user_id, "expiry_time": expiry_time}  # Using "id" instead of "user_id"
             await db.update_user(user_data)  # Use the update_user method to update or insert user data
-            await message.reply_text("Premium access removed to the user.")
+            await message.reply_text("ᴘʀᴇᴍɪᴜᴍ ᴀᴄᴄᴇss ʀᴇᴍᴏᴠᴇᴅ ᴛᴏ ᴛʜᴇ ᴜsᴇʀ.")
             await client.send_message(
                 chat_id=user_id,
-                text=f"<b>premium removed by admins \n\n Contact Admin if this is mistake \n\n 👮 Admin : @{OWNER_USERNAME} \n</b>",                
+                text=f"<b>ᴘʀᴇᴍɪᴜᴍ ʀᴇᴍᴏᴠᴇᴅ ʙʏ ᴀᴅᴍɪɴs \n\n ᴄᴏɴᴛᴀᴄᴛ ᴀᴅᴍɪɴ ɪғ ᴛʜɪs ɪs ᴍɪsᴛᴀᴋᴇ \n\n 👮 ᴀᴅᴍɪɴ : @{OWNER_USERNAME} \n</b>",                
             )
         else:
-            await message.reply_text("Invalid time format.'")
+            await message.reply_text("ɪɴᴠᴀʟɪᴅ ᴛɪᴍᴇ ғᴏʀᴍᴀᴛ.'")
     else:
         await message.reply_text("Usage: /remove_premium user_id")
         
@@ -1460,7 +1460,7 @@ async def check_plans_cmd(client, message):
     if await db.has_premium_access(user_id):         
         remaining_time = await db.check_remaining_uasge(user_id)             
         expiry_time = remaining_time + datetime.datetime.now()
-        await message.reply_text(f"**Your plans details are :\n\nRemaining Time : {remaining_time}\n\nExpirytime : {expiry_time}**")
+        await message.reply_text(f"**ʏᴏᴜʀ ᴘʟᴀɴ ᴅᴇᴛᴀɪʟs ᴀʀᴇ :\n\nʀᴇᴍᴀɪɴɪɴɢ ᴛɪᴍᴇ : {remaining_time}\n\nᴇxᴘɪʀʏ ᴛɪᴍᴇ : {expiry_time}**")
     else:
         btn = [ 
             [InlineKeyboardButton("ɢᴇᴛ ғʀᴇᴇ ᴛʀᴀɪʟ ғᴏʀ 𝟻 ᴍɪɴᴜᴛᴇꜱ ☺️", callback_data="get_trail")],
